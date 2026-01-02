@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ascend</title>
+
+<link rel="manifest" href="manifest.json" />
+<link rel="stylesheet" href="styles.css" />
+<meta name="theme-color" content="#000000" />
+</head>
+
+<body>
+<div class="app">
+
+<!-- ================= HOME ================= -->
+<section id="home" class="page active">
+
+  <!-- PROFILE CARD -->
+  <div class="card center">
+    <h1 id="username">Ascend</h1>
+
+    <!-- PROFILE FRAME -->
+    <div id="profileFrame" class="profile-frame bronze">
+      <span id="profileLevel">Lv <span id="level">1</span></span>
+    </div>
+
+    <div class="xp-bar">
+      <div id="xpFill"></div>
+    </div>
+
+    <p id="streak">🔥 0 day streak</p>
+
+    <button onclick="go('ai-chat')">Talk to AI Coach</button>
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="card quick-actions">
+    <button onclick="go('tasks')">✅ Tasks</button>
+    <button onclick="go('nutrition')">🥗 Nutrition</button>
+    <button onclick="go('notes')">📝 Notes</button>
+  </div>
+
+  <!-- CHALLENGES -->
+  <div class="card">
+    <h3>Daily Challenge</h3>
+    <p id="dailyText"></p>
+  </div>
+
+  <div class="card">
+    <h3>Weekly Challenge</h3>
+    <p id="weeklyText"></p>
+  </div>
+
+</section>
+
+<!-- ================= TASKS ================= -->
+<section id="tasks" class="page">
+  <div class="card">
+    <h2>Daily Tasks</h2>
+    <div id="taskList"></div>
+  </div>
+
+  <div class="card">
+    <button onclick="go('extra-tasks')">➕ Manage Tasks</button>
+  </div>
+</section>
+
+<!-- ================= EXTRA TASKS ================= -->
+<section id="extra-tasks" class="page">
+  <div class="card">
+    <h2>Task Library</h2>
+    <div id="taskLibrary"></div>
+  </div>
+</section>
+
+<!-- ================= AI CHAT ================= -->
+<section id="ai-chat" class="page">
+  <div class="card">
+    <h2>AI Coach</h2>
+
+    <div id="chatBox"
+      style="height:300px;overflow-y:auto;padding:10px;background:#111;border-radius:16px;margin-bottom:10px;">
+    </div>
+
+    <div style="display:flex;gap:8px;">
+      <input id="chatInput" type="text" placeholder="Say something..."
+        style="flex:1;padding:10px;border-radius:12px;border:none;background:#222;color:#fff;">
+      <button onclick="sendChat()">Send</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NUTRITION ================= -->
+<section id="nutrition" class="page">
+  <div class="card">
+    <h2>Nutrition Tracker</h2>
+
+    <button onclick="addMeal()">➕ Add Meal</button>
+  </div>
+</section>
+
+<!-- ================= NOTES ================= -->
+<section id="notes" class="page">
+  <div class="card">
+    <h2>Notes</h2>
+
+    <textarea id="noteInput"
+      placeholder="Write a thought, plan, or reflection..."
+      style="width:100%;height:100px;"></textarea>
+
+    <button onclick="addNote()">Save Note</button>
+  </div>
+
+  <div id="notesList"></div>
+</section>
+
+<!-- ================= LEADERBOARD ================= -->
+<section id="leaderboard" class="page">
+  <div class="card">
+    <h2>Leaderboard</h2>
+    <ul id="leaderboardList"></ul>
+  </div>
+</section>
+
+<!-- ================= SETTINGS ================= -->
+<section id="settings" class="page">
+
+  <div class="card">
+    <h2>Profile</h2>
+    <input id="nameInput" placeholder="Username" />
+    <button onclick="saveName()">Save Name</button>
+  </div>
+
+  <div class="card">
+    <h2>AI Coach Style</h2>
+    <button onclick="setAI('motivational')">Motivational</button>
+    <button onclick="setAI('analytical')">Analytical</button>
+    <button onclick="setAI('silent')">Silent</button>
+  </div>
+
+  <div class="card">
+    <h2>Accessibility</h2>
+    <button onclick="toggle('tapMode')">One Tap Mode</button>
+    <button onclick="toggle('reducedMotion')">Reduced Motion</button>
+  </div>
+
+</section>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <button onclick="go('home')">🏠</button>
+  <button onclick="go('tasks')">✅</button>
+  <button onclick="go('ai-chat')">💬</button>
+  <button onclick="go('nutrition')">🥗</button>
+  <button onclick="go('notes')">📝</button>
+  <button onclick="go('leaderboard')">🏆</button>
+  <button onclick="go('settings')">⚙️</button>
+</nav>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
